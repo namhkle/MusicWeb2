@@ -8,7 +8,6 @@ function App() {
   return (
     <Fragment>
       <Comment/>
-      <DisplaySongs/>
     </Fragment>
   );
 }

@@ -10,8 +10,10 @@ class DisplaySongs extends React.Component{
     }
 
     componentDidMount(){
-        SpringBootAPI.getSongs().then((response) =>{
-            this.setState({songs : response.data})
+        SpringBootAPI.getSongs()
+        .then(response => response.data)
+        .then ((data) =>{
+            this.setState({songs : data})
         });
     }
 
