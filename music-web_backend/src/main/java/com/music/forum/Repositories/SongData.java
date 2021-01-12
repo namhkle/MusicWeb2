@@ -7,16 +7,17 @@ import java.util.ArrayList;
 public class SongData {
     static ArrayList<Song> songs = new ArrayList<>();
 
-    public static ArrayList<Song> findAll(){
+    public static ArrayList<Song> getAll(){
         return songs;
     }
 
-    public static void add(String song, String artist){
-        songs.add(new Song(song, artist));
+    public static void add(Song song){
+        songs.add(song);
     }
 
-    public static void remove(String song){
-
+    public static void remove(int id){
+        Song songToRemove = getById(id);
+        songs.remove(songToRemove);
     }
 
     public static Song getById(int id){

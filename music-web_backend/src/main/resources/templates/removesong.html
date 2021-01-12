@@ -11,23 +11,12 @@
 <body class="container">
 <h1>Let's Remove Songs</h1>
 
-<table class="table" style="max-width:300px">
-    <tr>
-        <th>Song Name</th>
-        <th>Artist</th>
-    </tr>
-    <tr th:each="song : ${songs}">
-        <td th:text="${song.name}"></td>
-        <td th:text="${song.artist}"></td>
-    </tr>
-</table>
-
-<form method="post" style="max-width:600px;position:fixed;top:250px">
-    <div class="form-group" >
-        <input class="form-control" type="text" method="post" name="songName">
-
-        <input type="submit" value="Remove Song">
+<form method="post" style="max-width:600px;position:fixed;top:50px">
+    <div th:each="song : ${songs}" class="checkbox">
+        <input type="checkbox" name="songIds" th:value="${song.songId}" th:id="${song.songId}"/>
+        <label th:for="${song.songId}" th:text="${song.name}"></label>
     </div>
+    <input type="submit" value="Remove Song"/>
 </form>
 
 </body>
