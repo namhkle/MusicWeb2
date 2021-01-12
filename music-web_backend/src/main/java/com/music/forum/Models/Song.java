@@ -1,15 +1,15 @@
 package com.music.forum.Models;
 
 public class Song {
-    private int songID;
-    private static int nextSongID = 1;
+    private int songId;
+    private static int nextSongId = 1;
     private String name;
     private String artist;
 
 
     public Song(){
-        songID = nextSongID;
-        nextSongID++;
+        songId = nextSongId;
+        nextSongId++;
     }
 
     public Song(String name, String artist) {
@@ -17,12 +17,12 @@ public class Song {
         this.artist = artist;
     }
 
-    public int getSongID() {
-        return songID;
+    public int getSongId() {
+        return songId;
     }
 
-    public void setSongID(int songID) {
-        this.songID = songID;
+    public void setSongId(int songId) {
+        this.songId = songId;
     }
 
     public String getName() {
