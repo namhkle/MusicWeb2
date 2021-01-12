@@ -38,11 +38,17 @@ public class SongController {
     }
 
     @RequestMapping(value="removesong", method = RequestMethod.POST)
-    public void removeSong(@RequestParam String songName){
+    public String removeSong(@RequestParam String songName){
         for(Song song : songs){
             if(songName.compareTo(song.getName()) == 0){
                 songs.remove(song);
             }
         }
+        return "removesong";
+    }
+
+    @RequestMapping(value="addsong")
+    public List<Song> getSongs(){
+        return songs;
     }
 }

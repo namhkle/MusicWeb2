@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import DisplaySongs from './components/DisplaySongs';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(<DisplaySongs/>, document.getElementById('songs'));
 

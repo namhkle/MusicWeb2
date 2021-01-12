@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import SpringBootAPI from '../API/SpringBoot';
 
@@ -10,7 +11,7 @@ class DisplaySongs extends React.Component{
     }
 
     componentDidMount(){
-        SpringBootAPI.getSongs()
+        axios.get("http://localhost:8080/addsong/")
         .then(response => response.data)
         .then ((data) =>{
             this.setState({songs : data})

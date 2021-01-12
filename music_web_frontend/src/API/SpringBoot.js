@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const SpringBoot = 'http://localhost:8080/addsong/';
+const SpringBoot = "http://localhost:8080/addsong/";
 
 class SpringBootAPI{
     getSongs(){
