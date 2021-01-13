@@ -1,7 +1,6 @@
 package com.music.forum.Models;
 
 import com.sun.istack.NotNull;
-
 import javax.validation.constraints.Size;
 
 public class Song {
@@ -9,13 +8,12 @@ public class Song {
     private static int nextSongId = 1;
 
     @NotNull
-    @Size(min=2, max = 20)
+    @Size(min=1, max = 20)
     private String name;
 
-    @Size(min=2, max = 20)
     @NotNull
+    @Size(min=1, max = 20)
     private String artist;
-
 
     public Song(){
         songId = nextSongId;

@@ -4,10 +4,8 @@ import com.music.forum.Models.Song;
 import com.music.forum.Repositories.SongData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -34,9 +32,14 @@ public class SongController {
         return "removesong";
     }
     @RequestMapping(value="addsong", method = RequestMethod.POST)
-    public void addSong(Model model, @ModelAttribute @Valid Song newSong){
+    public String addSong(Model model, @ModelAttribute @Valid Song newSong, Errors errors){
         model.addAttribute("songs", SongData.getAll());
+       if(errors.hasErrors()){
+           return "addsong";
+       }
         SongData.add(newSong);
+        System.out.println("Hello " + newSong);
+        return "addsong";
     }
 
     @RequestMapping(value="removesong", method = RequestMethod.POST)
