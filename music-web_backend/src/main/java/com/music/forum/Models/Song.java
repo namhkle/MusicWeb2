@@ -1,9 +1,19 @@
 package com.music.forum.Models;
 
+import com.sun.istack.NotNull;
+
+import javax.validation.constraints.Size;
+
 public class Song {
     private int songId;
     private static int nextSongId = 1;
+
+    @NotNull
+    @Size(min=2, max = 20)
     private String name;
+
+    @Size(min=2, max = 20)
+    @NotNull
     private String artist;
 
 

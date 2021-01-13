@@ -1,14 +1,16 @@
 package com.music.forum.Controllers;
 
-import java.util.*;
-
 import com.music.forum.Models.Song;
 import com.music.forum.Repositories.SongData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
+import java.util.List;
 
 
 @Controller
@@ -32,9 +34,8 @@ public class SongController {
         return "removesong";
     }
     @RequestMapping(value="addsong", method = RequestMethod.POST)
-    public void addSong(Model model, @RequestParam String songName, @RequestParam String artistName){
+    public void addSong(Model model, @ModelAttribute @Valid Song newSong){
         model.addAttribute("songs", SongData.getAll());
-        Song newSong = new Song(songName, artistName);
         SongData.add(newSong);
     }
 
@@ -43,7 +44,7 @@ public class SongController {
         for(int songId : songIds){
             SongData.remove(songId);
         }
-        return "addsong";
+        return "removesong";
     }
 
     @RequestMapping(value="addsong")

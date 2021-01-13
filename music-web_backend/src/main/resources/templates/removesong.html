@@ -13,10 +13,10 @@
 
 <form method="post" style="max-width:600px;position:fixed;top:50px">
     <div th:each="song : ${songs}" class="checkbox">
-        <input type="checkbox" name="songIds" th:value="${song.songId}" th:id="${song.songId}"/>
+        <input type="checkbox" name="songIds" th:value="${song.songId}" th:id="${song.songId}">
         <label th:for="${song.songId}" th:text="${song.name}"></label>
     </div>
-    <input type="submit" value="Remove Song"/>
+    <input type="submit" value="Remove Song">
 </form>
 
 </body>
